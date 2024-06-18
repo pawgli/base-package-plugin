@@ -14,5 +14,5 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "AndroidAppTemplate"
-include(":app")
+rootProject.name = "BasePackagePlugin"
+include(":sample-app")
