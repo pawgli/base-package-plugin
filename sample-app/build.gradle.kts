@@ -1,6 +1,7 @@
 plugins {
   alias(libs.plugins.convention.android.app)
   alias(libs.plugins.convention.android.app.compose)
+  id("BasePackagePlugin")
 }
 
 android {
@@ -23,6 +24,11 @@ android {
       )
     }
   }
+}
+
+basePackagePlugin {
+  basePackage = "io.github.pawgli"
+  exclude("**/excludeddir/**", "**/excluded-file.txt")
 }
 
 dependencies {
