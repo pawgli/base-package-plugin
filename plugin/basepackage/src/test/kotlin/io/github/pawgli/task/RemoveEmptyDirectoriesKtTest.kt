@@ -13,7 +13,7 @@ class RemoveEmptyDirectoriesKtTest {
 
   @BeforeEach
   fun setUp() {
-    TestData.initializeTestDirTree(testFolder)
+    EmptyDirectoriesTestData.initializeTestDirTree(testFolder)
   }
 
   @Test
@@ -25,11 +25,11 @@ class RemoveEmptyDirectoriesKtTest {
       .filter { it.isNotEmpty() } // Root directory
       .toList()
 
-    actualDirTree shouldBe TestData.expectedDirTree
+    actualDirTree shouldBe EmptyDirectoriesTestData.expectedDirTree
   }
 }
 
-private object TestData {
+private object EmptyDirectoriesTestData {
 
   fun initializeTestDirTree(folder: File) {
     File(folder, "rootLevelEmptyDir").mkdir()
