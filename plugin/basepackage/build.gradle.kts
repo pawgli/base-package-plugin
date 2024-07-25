@@ -1,13 +1,12 @@
 plugins {
   `kotlin-dsl`
-}
-
-kotlin {
-  jvmToolchain(21)
+  alias(libs.plugins.convention.jvm.library)
 }
 
 dependencies {
   compileOnly(libs.kotlin.gradle)
+
+  testImplementation(libs.bundles.testSuite)
 }
 
 gradlePlugin {
