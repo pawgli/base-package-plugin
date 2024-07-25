@@ -11,7 +11,6 @@ internal fun Project.configureTest() {
   }
 }
 
-@Suppress("UnstableApiUsage")
 internal fun Project.disableUnnecessaryAndroidTests(
   extension: LibraryAndroidComponentsExtension
 ) {
