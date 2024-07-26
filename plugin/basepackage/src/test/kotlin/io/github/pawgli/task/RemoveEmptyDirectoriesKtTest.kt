@@ -24,6 +24,7 @@ class RemoveEmptyDirectoriesKtTest {
       .map { it.relativeTo(testFolder).toString() }
       .filter { it.isNotEmpty() } // Root directory
       .toList()
+      .sorted()
 
     actualDirTree shouldBe EmptyDirectoriesTestData.expectedDirTree
   }
@@ -53,5 +54,5 @@ private object EmptyDirectoriesTestData {
     "nested",
     "nested/nonEmptyDir",
     "nested/nonEmptyDir/file.txt",
-  )
+  ).sorted()
 }
