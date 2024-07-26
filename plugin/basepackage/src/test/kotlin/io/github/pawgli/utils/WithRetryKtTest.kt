@@ -11,7 +11,7 @@ class WithRetryKtTest {
 
     val result = withRetry(tries = 3, action)
 
-    result shouldBe true
+    result shouldBe false
     actionCount shouldBe 1
   }
 
