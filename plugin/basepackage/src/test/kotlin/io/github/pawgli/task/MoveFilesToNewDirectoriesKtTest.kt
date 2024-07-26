@@ -43,6 +43,7 @@ class MoveFilesToNewDirectoriesKtTest {
       .map { it.relativeTo(testFolder).toString() }
       .filter { it.isNotEmpty() } // Root directory
       .toList()
+      .sorted()
 
     println(actualDirTree)
     println(RenameDirectoriesTestData.expectedDirTree)
@@ -86,7 +87,7 @@ private object RenameDirectoriesTestData {
 
     "com",
     "com/initial",
-  )
+  ).sorted()
 
   fun initializeTestDirTree(folder: File) {
     File(folder, "com").mkdir()
