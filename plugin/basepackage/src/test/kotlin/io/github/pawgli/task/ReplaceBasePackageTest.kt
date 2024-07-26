@@ -14,7 +14,7 @@ import java.io.File
 class ReplaceBasePackageTest {
 
   @Test
-  fun `replaces old package occurrences with new ones`() = mockkStatic(::replaceBasePackageInExistingFiles, ::renameDirectories, ::removeEmptyDirectories) {
+  fun `replaces old package occurrences with new ones`() = mockkStatic(::replaceBasePackageInExistingFiles, ::moveFilesToNewDirectories, ::removeEmptyDirectories) {
     // arrange
     val oldBasePackage = randomString()
     val newBasePackage = randomString()
@@ -24,7 +24,7 @@ class ReplaceBasePackageTest {
     val projectDirMock: File = mockk()
 
     every { replaceBasePackageInExistingFiles(projectDirMock, oldBasePackage, newBasePackage, exclusionPatterns) } just runs
-    every { renameDirectories(projectDirMock, oldBasePackage, newBasePackage, exclusionPatterns, loggerMock) } just runs
+    every { moveFilesToNewDirectories(projectDirMock, oldBasePackage, newBasePackage, exclusionPatterns, loggerMock) } just runs
     every { removeEmptyDirectories(projectDirMock) } just runs
 
     val subject = ReplaceBasePackage(projectDirMock, oldBasePackage, newBasePackage, loggerMock, exclusionPatterns)
@@ -35,7 +35,7 @@ class ReplaceBasePackageTest {
     // assert
     verifySequence {
       replaceBasePackageInExistingFiles(projectDirMock, oldBasePackage, newBasePackage, exclusionPatterns)
-      renameDirectories(projectDirMock, oldBasePackage, newBasePackage, exclusionPatterns, loggerMock)
+      moveFilesToNewDirectories(projectDirMock, oldBasePackage, newBasePackage, exclusionPatterns, loggerMock)
       removeEmptyDirectories(projectDirMock)
     }
   }

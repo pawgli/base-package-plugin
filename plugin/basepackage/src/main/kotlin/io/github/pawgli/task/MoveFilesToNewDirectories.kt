@@ -7,7 +7,7 @@ import java.io.File
 
 private const val PACKAGE_SEPARATOR = '.'
 
-internal fun renameDirectories(
+internal fun moveFilesToNewDirectories(
   projectDir: File,
   oldBasePackage: String,
   newBasePackage: String,

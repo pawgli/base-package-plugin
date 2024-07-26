@@ -13,7 +13,7 @@ class ReplaceBasePackage(
 
   operator fun invoke() {
     replaceBasePackageInExistingFiles(projectDir, oldBasePackage, newBasePackage, exclusionPatterns)
-    renameDirectories(projectDir, oldBasePackage, newBasePackage, exclusionPatterns, logger)
+    moveFilesToNewDirectories(projectDir, oldBasePackage, newBasePackage, exclusionPatterns, logger)
     removeEmptyDirectories(projectDir)
   }
 }

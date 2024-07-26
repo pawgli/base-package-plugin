@@ -40,6 +40,7 @@ private object EmptyDirectoriesTestData {
 
     File(folder, "nested").mkdir()
     File(folder, "nested/emptyDir").mkdir()
+    File(folder, "nested/nested-deeper/emptyDir").mkdir()
 
     val nestedNonEmptyDir = File(folder, "nested/nonEmptyDir")
     nestedNonEmptyDir.mkdir()
