@@ -1,6 +1,6 @@
 package io.github.pawgli.task
 
-import io.github.pawgli.utils.isNotExcluded
+import io.github.pawgli.utils.isExcluded
 import java.io.File
 
 internal fun replaceBasePackageInExistingFiles(
@@ -11,7 +11,7 @@ internal fun replaceBasePackageInExistingFiles(
 ) {
   projectDir.walkTopDown().forEach { file ->
     val filePath = file.toPath()
-    if (file.isFile && filePath.isNotExcluded(exclusionPatterns)) {
+    if (file.isFile && !filePath.isExcluded(exclusionPatterns)) {
       var text = file.readText()
       text = text.replace(oldBasePackage, newBasePackage)
       file.writeText(text)

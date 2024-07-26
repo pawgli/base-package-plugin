@@ -1,6 +1,6 @@
 package io.github.pawgli.task
 
-import io.github.pawgli.utils.isNotExcluded
+import io.github.pawgli.utils.isExcluded
 import io.github.pawgli.utils.withRetry
 import org.gradle.api.logging.Logger
 import java.io.File
@@ -18,7 +18,7 @@ internal fun moveFilesToNewDirectories(
   val newPath = newBasePackage.replace(PACKAGE_SEPARATOR, File.separatorChar)
 
   projectDir.walkTopDown().forEach { file ->
-    val isNotExcluded = file.toPath().isNotExcluded(exclusionPatterns)
+    val isNotExcluded = !file.toPath().isExcluded(exclusionPatterns)
     if (file.isDirectory && file.path.contains(oldPath) && isNotExcluded) {
       file.renameDirectory(oldPath, newPath, logger)
     }
