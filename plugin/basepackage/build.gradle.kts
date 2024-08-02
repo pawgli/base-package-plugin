@@ -9,10 +9,3 @@ dependencies {
 
   testImplementation(libs.bundles.testSuite)
 }
-
-gradlePlugin {
-  plugins.register("BasePackagePlugin") {
-    id = "BasePackagePlugin"
-    implementationClass = "io.github.pawgli.BasePackagePlugin"
-  }
-}
