@@ -1,4 +1,4 @@
-package io.github.pawgli.androidapptemplate.ui.theme
+package io.github.pawgli.basepackagesample.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun AndroidAppTemplateTheme(
+fun BasePackageSampleTheme(
   darkTheme: Boolean = isSystemInDarkTheme(),
   // Dynamic color is available on Android 12+
   dynamicColor: Boolean = true,

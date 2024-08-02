@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-  namespace = "io.github.pawgli.androidapptemplate"
+  namespace = "io.github.pawgli.basepackagesample"
 
   defaultConfig {
-    applicationId = "io.github.pawgli.androidapptemplate"
+    applicationId = "io.github.pawgli.basepackagesample"
     versionCode = 1
     versionName = "1.0"
 
