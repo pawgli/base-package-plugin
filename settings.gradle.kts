@@ -1,6 +1,5 @@
 pluginManagement {
   includeBuild("build-logic")
-  includeBuild("plugin")
   repositories {
     google()
     mavenCentral()
@@ -18,3 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "BasePackagePlugin"
 include(":sample-app")
+include(":plugin:basepackage")

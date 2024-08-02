@@ -14,6 +14,18 @@ internal fun Project.getLibrary(alias: String): Provider<MinimalExternalModuleDe
 
 internal fun Project.getVersion(alias: String): String = libs.findVersion(alias).getAsString()
 
+internal inline fun <reified T> Project.requireProperty(
+  key: String,
+  default: T? = null,
+): T {
+  val property = findProperty(key)
+  return if (property is T) {
+    property
+  } else {
+    default ?: error("Property $key not found or not of expected type")
+  }
+}
+
 internal val Project.libs
   get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 

@@ -1,8 +1,9 @@
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
   repositories {
-    google()
     mavenCentral()
+    google()
+    gradlePluginPortal()
   }
   versionCatalogs {
     create("libs") {

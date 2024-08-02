@@ -13,12 +13,6 @@
                   <project path="$PROJECT_DIR$/build-logic/convention" />
                 </projects>
               </build>
-              <build path="$PROJECT_DIR$/plugin" name="plugin">
-                <projects>
-                  <project path="$PROJECT_DIR$/plugin" />
-                  <project path="$PROJECT_DIR$/plugin/basepackage" />
-                </projects>
-              </build>
             </builds>
           </compositeBuild>
         </compositeConfiguration>
