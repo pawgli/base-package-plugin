@@ -4,7 +4,7 @@ import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.nio.file.Path
 
-class IsNotExcludedKtTest {
+class IsExcludedKtTest {
 
   @Test
   fun `path is excluded if the file's name matches the pattern`() {

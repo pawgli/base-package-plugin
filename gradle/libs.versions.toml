@@ -1,10 +1,10 @@
 [versions]
 
-# Plugins
 java = "21"
 androidGradlePlugin = "8.5.1"
 kotlin = "2.0.0"
 detekt = "1.23.6"
+vanniktechMavenPublish = "0.29.0"
 
 [libraries]
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version = "1.9.1" }
@@ -24,6 +24,7 @@ detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", 
 # Dependencies of the included build scripts
 android-gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+vanniktech-mavenPublish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "vanniktechMavenPublish" }
 
 [bundles]
 testSuite = ["junit-jupiter", "kotest", "mockk"]
@@ -34,6 +35,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version = "1.6.11" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
 
 # Convention plugins
 convention-android-app = { id = "AndroidAppConventionPlugin", version = "unspecified" }
@@ -41,3 +43,4 @@ convention-android-app-compose = { id = "AndroidAppComposeConventionPlugin", ver
 convention-android-library = { id = "AndroidLibraryConventionPlugin", version = "unspecified" }
 convention-android-library-compose = { id = "AndroidLibraryComposeConventionPlugin", version = "unspecified" }
 convention-jvm-library = { id = "JavaLibraryConventionPlugin", version = "unspecified" }
+convention-publishing = { id = "PublishingConventionPlugin", version = "unspecified" }

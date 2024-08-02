@@ -1,14 +1,13 @@
 plugins {
   alias(libs.plugins.convention.android.app)
   alias(libs.plugins.convention.android.app.compose)
-  id("BasePackagePlugin")
 }
 
 android {
-  namespace = "io.github.pawgli.androidapptemplate"
+  namespace = "io.github.pawgli.basepackagesample"
 
   defaultConfig {
-    applicationId = "io.github.pawgli.androidapptemplate"
+    applicationId = "io.github.pawgli.basepackagesample"
     versionCode = 1
     versionName = "1.0"
 
@@ -24,11 +23,6 @@ android {
       )
     }
   }
-}
-
-basePackagePlugin {
-  basePackage = "io.github.pawgli"
-  exclude("**/excludeddir/**", "**/excluded-file.txt")
 }
 
 dependencies {

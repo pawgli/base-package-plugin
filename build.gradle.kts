@@ -6,6 +6,7 @@ plugins {
     alias(kotlin.android) apply false
     alias(compose) apply false
     alias(compose.compiler) apply false
+    alias(vanniktech.mavenPublish) apply false
     alias(detekt)
 
     // Convention plugins
@@ -14,6 +15,7 @@ plugins {
     alias(convention.android.library) apply false
     alias(convention.android.library.compose) apply false
     alias(convention.jvm.library) apply false
+    alias(convention.publishing) apply false
   }
 }
 

@@ -9,6 +9,7 @@ kotlin {
 dependencies {
   compileOnly(libs.android.gradle)
   compileOnly(libs.kotlin.gradle)
+  compileOnly(libs.vanniktech.mavenPublish)
 }
 
 gradlePlugin {
@@ -18,6 +19,7 @@ gradlePlugin {
     registerConvention("AndroidLibraryConventionPlugin")
     registerConvention("AndroidLibraryComposeConventionPlugin")
     registerConvention("JavaLibraryConventionPlugin")
+    registerConvention("PublishingConventionPlugin")
   }
 }
 
