@@ -1,5 +1,7 @@
-import io.github.pawgli.configuration.configureMavenPublish
-import io.github.pawgli.publishing.PublishingPropertyKey
+import io.github.pawgli.configuration.configureGradlePluginPublication
+import io.github.pawgli.configuration.configureLibraryPublication
+import io.github.pawgli.publishing.getPublicationVersionOrNull
+import io.github.pawgli.publishing.isPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskContainer
@@ -8,25 +10,24 @@ class PublishingConventionPlugin : Plugin<Project> {
 
   override fun apply(target: Project) {
     with(target) {
-      getLibVersion()?.let { version ->
+      getPublicationVersionOrNull()?.let { version ->
         applyPublishingPlugin(version)
       } ?: onVersionNotFound()
     }
   }
 
-  private fun Project.getLibVersion(): String? {
-    val versionEnv = findProperty(PublishingPropertyKey.VERSION_SYSTEM_ENV) as? String
-    return versionEnv?.let(System::getenv)
-  }
-
   private fun Project.applyPublishingPlugin(version: String) {
-    pluginManager.apply("com.vanniktech.maven.publish")
+    with(pluginManager) {
+      apply("com.vanniktech.maven.publish")
+      apply("com.gradle.plugin-publish")
+    }
     tasks.registerPublishingTask()
-    configureMavenPublish(version)
+    configureLibraryPublication(version)
+    if (isPlugin) configureGradlePluginPublication(version)
   }
 
   private fun onVersionNotFound() {
-    println("Publishing Plugin wasn't applied, because library version is not specified.")
+    println("The Publishing Plugin wasn't applied due to unspecified publication version.")
   }
 }
 

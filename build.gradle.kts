@@ -7,6 +7,7 @@ plugins {
     alias(compose) apply false
     alias(compose.compiler) apply false
     alias(vanniktech.mavenPublish) apply false
+    alias(gradle.pluginPublish) apply false
     alias(detekt)
 
     // Convention plugins
