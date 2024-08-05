@@ -13,6 +13,7 @@ import org.gradle.api.provider.SetProperty
  */
 interface BasePackagePluginExtension {
   val basePackage: Property<String>
+  // TODO: Add newPackage property
   val exclusionPatterns: SetProperty<String>
 
   /**
