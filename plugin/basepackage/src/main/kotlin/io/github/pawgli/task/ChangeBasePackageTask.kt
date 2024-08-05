@@ -27,7 +27,7 @@ internal abstract class ChangeBasePackageTask : DefaultTask() {
   }
 
   init {
-    group = "Build Setup"
+    group = "Refactoring"
     description =
       "Changes the base package of the project, set -P$NEW_BASE_PACKAGE_KEY=com.yourdomain.yourpackage"
   }

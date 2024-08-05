@@ -6,6 +6,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.TaskContainer
 
+// TODO: Support private repositories, extract the plugin
 class PublishingConventionPlugin : Plugin<Project> {
 
   override fun apply(target: Project) {
@@ -19,7 +20,6 @@ class PublishingConventionPlugin : Plugin<Project> {
   private fun Project.applyPublishingPlugin(version: String) {
     with(pluginManager) {
       apply("com.vanniktech.maven.publish")
-      apply("com.gradle.plugin-publish")
     }
     tasks.registerPublishingTask()
     configureLibraryPublication(version)
