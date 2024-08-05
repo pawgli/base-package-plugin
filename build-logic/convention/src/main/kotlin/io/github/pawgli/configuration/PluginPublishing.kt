@@ -1,6 +1,5 @@
 package io.github.pawgli.configuration
 
-import io.github.pawgli.publishing.PublishingDefaults
 import io.github.pawgli.publishing.artifactId
 import io.github.pawgli.publishing.groupId
 import io.github.pawgli.publishing.pluginImplementationClass
@@ -14,7 +13,7 @@ import org.gradle.plugin.devel.GradlePluginDevelopmentExtension
 
 @Suppress("UnstableApiUsage")
 internal fun Project.configureGradlePluginPublication(version: String) {
-  group = PublishingDefaults.GROUP_ID
+  group = groupId
   this.version = version
 
   configure<GradlePluginDevelopmentExtension> {
