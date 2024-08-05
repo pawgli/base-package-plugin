@@ -45,7 +45,7 @@ basePackagePlugin {
 
 Use the `changeBasePackage` task provided by the plugin to change the package. Pass the new package as a parameter.
 
-```kotlin
+```bash
 ./gradlew :yourproject:changeBasePackage -PnewBasePackage=your.new.package
 ```
 
