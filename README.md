@@ -31,7 +31,7 @@ basePackagePlugin {
 
 ### 2. Specify Exclusions 🚫
 
-Define any exclusions using (glob patterns)[https://docs.oracle.com/en-us/iaas/Content/devops/using/glob-patterns.htm].
+Define any exclusions using [glob patterns](https://docs.oracle.com/en-us/iaas/Content/devops/using/glob-patterns.htm).
 
 
 ```kotlin
@@ -45,7 +45,7 @@ basePackagePlugin {
 
 Use the `changeBasePackage` task provided by the plugin to change the package. Pass the new package as a parameter.
 
-```kotlin
+```bash
 ./gradlew :yourproject:changeBasePackage -PnewBasePackage=your.new.package
 ```
 
