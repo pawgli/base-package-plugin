@@ -12,7 +12,7 @@ Add the plugin to any Gradle project in which you need to change the base packag
 
 ```kotlin
 plugins {
-  id("io.github.pawgli.basepackage") version "0.1.4"
+  id("io.github.pawgli.basepackage") version "0.1.5"
 }
 ```
 
