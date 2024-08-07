@@ -12,7 +12,7 @@ Add the plugin to any Gradle project in which you need to change the base packag
 
 ```kotlin
 plugins {
-  id("io.github.pawgli.basepackage") version "0.1.3"
+  id("io.github.pawgli.basepackage") version "0.1.4"
 }
 ```
 
@@ -46,7 +46,16 @@ basePackagePlugin {
 Use the `changeBasePackage` task provided by the plugin to change the package. Pass the new package as a parameter.
 
 ```bash
-./gradlew :yourproject:changeBasePackage -PnewBasePackage=your.new.package
+./gradlew :yourproject:changeBasePackage -PnewPackage=your.new.package
+```
+
+Alternatively, you can specify the new base package directly in your project's `build.gradle.kts file`, eliminating the need to pass it as a parameter to the task.
+
+```kotlin
+basePackagePlugin {
+  basePackage = "io.github.pawgli"
+  newPackage = "your.new.package"
+}
 ```
 
 ## Try It Out! 🕵️‍♂️
