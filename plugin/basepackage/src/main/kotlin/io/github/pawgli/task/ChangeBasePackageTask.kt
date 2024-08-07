@@ -6,7 +6,7 @@ import org.gradle.api.provider.SetProperty
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
-private const val NEW_BASE_PACKAGE_KEY = "newBasePackage"
+private const val NEW_PACKAGE_KEY = "newPackage"
 
 internal abstract class ChangeBasePackageTask : DefaultTask() {
 
@@ -14,12 +14,15 @@ internal abstract class ChangeBasePackageTask : DefaultTask() {
   abstract val basePackage: Property<String>
 
   @get:Input
+  abstract val newPackage: Property<String>
+
+  @get:Input
   abstract val exclusionPatterns: SetProperty<String>
 
   private val replaceBasePackage by lazy {
     ReplaceBasePackage(
       projectDir = project.projectDir,
-      newBasePackage = project.findProperty(NEW_BASE_PACKAGE_KEY) as String,
+      newBasePackage = getNewPackageProperty(),
       oldBasePackage = basePackage.get(),
       logger = logger,
       exclusionPatterns = exclusionPatterns.get()
@@ -29,13 +32,18 @@ internal abstract class ChangeBasePackageTask : DefaultTask() {
   init {
     group = "Refactoring"
     description =
-      "Changes the base package of the project, set -P$NEW_BASE_PACKAGE_KEY=com.yourdomain.yourpackage"
+      "Changes the base package of the project, set -P$NEW_PACKAGE_KEY=com.yourdomain.yourpackage"
   }
 
   @TaskAction
   fun action() {
     replaceBasePackage()
   }
+
+  private fun getNewPackageProperty(): String =
+    project.findProperty(NEW_PACKAGE_KEY) as? String
+      ?: newPackage.get()
+      ?: error("The new base package was not provided.")
 
   companion object {
     const val TASK_NAME = "changeBasePackage"
