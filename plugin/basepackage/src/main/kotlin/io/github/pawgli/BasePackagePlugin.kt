@@ -14,9 +14,6 @@ class BasePackagePlugin : Plugin<Project> {
       val extension: BasePackagePluginExtension = createBasePackageExtension()
 
       afterEvaluate {
-        extension.apply {
-          basePackage.convention(DEFAULT_BASE_PACKAGE)
-        }
         registerChangeBasePackageTask(extension)
       }
     }
@@ -24,7 +21,6 @@ class BasePackagePlugin : Plugin<Project> {
 
   internal companion object {
     const val EXTENSION_NAME = "basePackagePlugin"
-    private const val DEFAULT_BASE_PACKAGE = "com.example"
   }
 }
 
@@ -36,6 +32,7 @@ private fun Project.registerChangeBasePackageTask(
 ) {
   tasks.register(ChangeBasePackageTask.TASK_NAME, ChangeBasePackageTask::class.java) {
     basePackage.set(extension.basePackage)
-    exclusionPatterns.set(extension.exclusionPatterns)
+    newPackage.convention(extension.newPackage.orNull)
+    exclusionPatterns.convention(extension.exclusionPatterns)
   }
 }
