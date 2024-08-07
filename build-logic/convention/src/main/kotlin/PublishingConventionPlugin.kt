@@ -37,6 +37,6 @@ private fun TaskContainer.registerPublishingTask() {
     description = "Runs the tests, and publishes the project to Maven Central repository."
 
     dependsOn("test")
-    dependsOn("publishAndReleaseToMavenCentral")
+    dependsOn("publishAllPublicationsToMavenCentralRepository")
   }
 }
