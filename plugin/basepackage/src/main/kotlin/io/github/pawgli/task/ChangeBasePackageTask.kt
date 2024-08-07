@@ -4,6 +4,7 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property
 import org.gradle.api.provider.SetProperty
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.TaskAction
 
 private const val NEW_PACKAGE_KEY = "newPackage"
@@ -14,6 +15,7 @@ internal abstract class ChangeBasePackageTask : DefaultTask() {
   abstract val basePackage: Property<String>
 
   @get:Input
+  @get:Optional
   abstract val newPackage: Property<String>
 
   @get:Input
@@ -42,8 +44,11 @@ internal abstract class ChangeBasePackageTask : DefaultTask() {
 
   private fun getNewPackageProperty(): String =
     project.findProperty(NEW_PACKAGE_KEY) as? String
-      ?: newPackage.get()
-      ?: error("The new base package was not provided.")
+      ?: if (newPackage.isPresent) {
+        newPackage.get()
+      } else {
+        error("The new base package was not provided.")
+      }
 
   companion object {
     const val TASK_NAME = "changeBasePackage"
