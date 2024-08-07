@@ -1,7 +1,7 @@
 plugins {
   alias(libs.plugins.convention.android.app)
   alias(libs.plugins.convention.android.app.compose)
-  id("io.github.pawgli.basepackage") version "0.1.5"
+  id("io.github.pawgli.basepackage") version "0.1.4"
 }
 
 android {
