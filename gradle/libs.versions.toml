@@ -2,7 +2,7 @@
 
 java = "17"
 androidGradlePlugin = "8.5.2"
-kotlin = "2.0.10"
+kotlin = "2.0.20"
 detekt = "1.23.6"
 vanniktechMavenPublish = "0.29.0"
 
